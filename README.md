@@ -6,5 +6,6 @@ code snipets with tricks and reusable components
 ```python
 from scipy import io
 counts = io.mmread('matrix.mtx.gz')
+counts.toarray()
 ```
 Tags : cellranger , count matrix
