@@ -39,6 +39,30 @@ text(iris$Sepal.Length,iris$Sepal.Width,iris$Species,pos=3,offset=.2,col="darkgr
 ```
 
 ---
+**Dark theme using ggplot**
+
+![alt text](images/ggplot_theme_black.png)
+
+```r
+theme_black <- theme(plot.background = element_rect(fill = "black",colour=NA),
+                  panel.grid.major = element_blank(),
+                  text = element_text(color="white"),
+                  axis.title = element_text(colour = "white",size = 20),
+                  axis.text = element_text(colour = "white",size = 20),
+                  axis.line = element_line(colour = "white"),
+                  plot.title = element_text(color = "white"),
+                  panel.background = element_rect(fill = 'black'),
+                  legend.background = element_rect(fill = "black", color = NA),
+                  legend.key = element_rect(color = "black", fill = "gray"),
+                  legend.title = element_text(color = "white"),
+                  legend.text = element_text(color = "white",size = 20))
+                  
+ggplot(iris,aes(x=Sepal.Length,y=Sepal.Width,color=Species))+
+  geom_point()+theme_black
+  
+```
+
+---
 **Dual axis** 
 
 ![alt text](images/dual_axis_dark.png)
