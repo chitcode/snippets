@@ -1,5 +1,5 @@
 
-### Images Collected or created
+### Images Collected or created, may be helpful for Data Science presentations and talks
 
 Please cite the the original author(s) if you are using these images.
 
