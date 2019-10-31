@@ -1,7 +1,7 @@
 
 ### Images Collected or created
 
-Please cite the the original author(s) if you are using this image.
+Please cite the the original author(s) if you are using these images.
 
 ---
 Single Cell Analysis Skills
