@@ -13,3 +13,11 @@ Tags : cellranger , count matrix
 import sys
 !conda install --yes --prefix {sys.prefix} numpy
 ```
+
+---
+
+#### Conda new environment
+```sh
+conda create --new newenv
+conda install nb_conda_kernels
+```
