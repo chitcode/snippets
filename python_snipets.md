@@ -21,17 +21,20 @@ import sys
 
 Prob: After creating a new environment in conda, to fix Jupyter notebooks installation issues.
 ```sh
-conda create --new newenv
+conda create --name newenv
+conda activate newenv
 conda install nb_conda_kernels
 ```
 
 #### Google colab disconnects
 Google colab disconnects if the browser is not active for a while.
-To avoid disconnection, execute the following code in the chrome console. [From the blogpost](https://medium.com/@shivamrawat_756/how-to-prevent-google-colab-from-disconnecting-717b88a128c0)
+To avoid disconnection, execute the following code in the chrome console. Inspired from the [blogpost](https://medium.com/@shivamrawat_756/how-to-prevent-google-colab-from-disconnecting-717b88a128c0).
+It seems the code in the blog has broken. So I modified to click on the files button in regular interval.
 ```javascript
 function ClickConnect(){
 console.log("Working");
-document.querySelector("colab-toolbar-button#connect").click()
+files_btn = document.querySelector("body > div.notebook-vertical.colab-left-pane-open > div.notebook-horizontal > colab-left-pane > div > paper-listbox > paper-item:nth-child(3) > paper-icon-button").shadowRoot.querySelector("#icon");
+files_btn.click()
 }
 setInterval(ClickConnect,60000)
 ```
