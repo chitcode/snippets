@@ -19,7 +19,7 @@ library(kableExtra)
 df%>%
   kable %>%
   kable_styling()
-  
+
 ```
 source: [kable package](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
 More options are available for styling the table.
@@ -56,14 +56,14 @@ theme_black <- theme(plot.background = element_rect(fill = "black",colour=NA),
                   legend.key = element_rect(color = "black", fill = "gray"),
                   legend.title = element_text(color = "white"),
                   legend.text = element_text(color = "white",size = 20))
-                  
+
 ggplot(iris,aes(x=Sepal.Length,y=Sepal.Width,color=Species))+
   geom_point()+theme_black
-  
+
 ```
 
 ---
-**Dual axis** 
+**Dual axis**
 
 ![alt text](images/dual_axis_dark.png)
 ```r
@@ -75,20 +75,20 @@ iris <- iris[order(iris$Sepal.Length),]
 
 plot(iris$Sepal.Length,iris$Sepal.Width,type = "b",
      ylab = "Sepal Width",
-     main = "Sepal Length Vs. Width", 
+     main = "Sepal Length Vs. Width",
      xlab = "Sepal Length",
      col = "darkgreen", pch = 19)
-     
+
 text(iris$Sepal.Length,iris$Sepal.Width,
        round(iris$Sepal.Width,1),
        pos=3,
        offset=.2,
        col="darkgreen",cex=0.5)
-       
+
 par(new = TRUE)
 plot(iris$Sepal.Length,iris$Petal.Width, type = "b", xaxt = "n", yaxt = "n",
-     ylab = "", xlab = "", 
-     col = "darkgoldenrod4", 
+     ylab = "", xlab = "",
+     col = "darkgoldenrod4",
      lty = 2,pch = 19, xaxt="n")     
 axis(side = 4)
 text(iris$Sepal.Length,iris$Petal.Width,round(iris$Petal.Width,1),pos=1,offset=.2,col="darkgoldenrod4",cex=0.5)
@@ -96,7 +96,18 @@ text(iris$Sepal.Length,iris$Petal.Width,round(iris$Petal.Width,1),pos=1,offset=.
 mtext("Petal Width", side = 4, line = 3)
 
 legend("topleft", c("Sepal Width", "Petal Width"),
-       col = c("darkgreen", "darkgoldenrod4"), 
+       col = c("darkgreen", "darkgoldenrod4"),
        lty = c(1, 2))
 axis(1, at = iris$Sepal.Length, las=2)
 ```
+---
+**From List to Variables**
+
+In R, we can return multiple values from a function as list. We can access these values by names. If there are many values in the list we can iterate them to assign to the variables.
+
+```r
+my_list = list("a"=1,"b"=2,"c"=3)
+
+for(v in names(my_list)) assign(v, my_list[[v]])
+
+print(a)
