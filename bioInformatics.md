@@ -1,4 +1,4 @@
-## Converting Gene symbols to gene id (ENTREZID or NCBI etc) format
+### Converting Gene symbols to gene id (ENTREZID or NCBI etc) format
 
 ```r
 library(clusterProfiler)
@@ -15,7 +15,7 @@ There are other alternative approches for these conversions.
 
 -----
 
-Getting genes list for GO term
+### Getting genes list for a GO term
 
 Ref : https://bioconductor.org/packages/release/bioc/vignettes/biomaRt/inst/doc/biomaRt.html
 ```r
@@ -31,7 +31,7 @@ go.genes <- genes.df$hgnc_symbol[df$go_id == "GO:0008009"]
 ```
 ----
 
-Reading 10X spatial data in python
+### Reading 10X spatial data in python
 
 #Major part of follow code copied from 10X and other sources.
 
@@ -67,4 +67,21 @@ def get_matrix_from_h5(filename):
          
         return CountMatrix(feature_ref, barcodes, matrix)
      
+```
+---
+
+### Getting genes for a KEGG pathways
+
+Here we are looking for genes in Melanoma [Pathway](https://www.genome.jp/kegg-bin/get_htext?query=05218&htext=br08901.keg&option=-a&node_proc=br08901_org&proc_enabled=hsa).
+
+```r
+keggReturns <- keggGet("hsa05218")[[1]]$GENE
+
+#genes are at alternate lines, so first we will extract the lines containing gene symbols
+genesLines <- seq(from=2, to = length(keggReturns), by = 2)
+keggReturns <- keggReturns[genesLines]
+#further cleaning
+genesList <- gsub("\\;.*","",keggReturns)
+head(genesList)
+#"FGF1"  "FGF2"  "FGF3"  "FGF4"  "FGF17" "FGF6" 
 ```
