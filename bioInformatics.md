@@ -75,6 +75,7 @@ def get_matrix_from_h5(filename):
 Here we are looking for genes in Melanoma [Pathway](https://www.genome.jp/kegg-bin/get_htext?query=05218&htext=br08901.keg&option=-a&node_proc=br08901_org&proc_enabled=hsa).
 
 ```r
+library(KEGGREST)
 keggReturns <- keggGet("hsa05218")[[1]]$GENE
 
 #genes are at alternate lines, so first we will extract the lines containing gene symbols
