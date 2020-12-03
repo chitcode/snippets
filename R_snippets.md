@@ -9,6 +9,26 @@
 ````
 Source : [StackOverflow](https://stackoverflow.com/questions/15081212/remove-hashes-in-r-output-from-r-markdown-and-knitr)
 
+More gloabl options
+````r
+---
+title:  'My Title'
+author:
+  - Author 1
+output:
+  pdf_document:
+    extra_dependencies: ["float"]
+  html_document: default
+---
+
+```{r global_options, include=TRUE,echo=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=6, fig.align='center',
+                      fig.path='Figs/',cache = TRUE,
+                      echo=TRUE, warning=FALSE, message=FALSE,
+                      tidy.opts=list(width.cutoff=60),comment = NA, tidy=TRUE)
+```
+
+````
 ---
 **Printing tables nice and tidy**
 ```r
@@ -18,7 +38,7 @@ library(kableExtra)
 
 df%>%
   kable %>%
-  kable_styling()
+  kable_styling(full_width = F)
 
 ```
 source: [kable package](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
