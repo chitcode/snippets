@@ -18,6 +18,7 @@ There are other alternative approches for these conversions.
 ### Getting genes list for a GO term
 
 Ref : https://bioconductor.org/packages/release/bioc/vignettes/biomaRt/inst/doc/biomaRt.html
+
 ```r
 library("biomaRt")
 #Mart for human genes
@@ -26,14 +27,15 @@ ensembl = useMart("ensembl",dataset="hsapiens_gene_ensembl")
 genes.df <- getBM(attributes=c('hgnc_symbol', 'go_id'),
 +       filters = 'go', values = 'GO:0008009', mart = ensembl)
 
-# Somewhat this is not filtering based on the GO value
+\# Somewhat this is not filtering based on the GO value
+
 go.genes <- genes.df$hgnc_symbol[df$go_id == "GO:0008009"]
 ```
 ----
 
 ### Reading 10X spatial data in python
 
-#Major part of follow code copied from 10X and other sources.
+*Major part of following code copied from 10X and other sources.*
 
 ```python
 import collections
