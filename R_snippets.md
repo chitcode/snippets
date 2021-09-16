@@ -131,3 +131,21 @@ my_list = list("a"=1,"b"=2,"c"=3)
 for(v in names(my_list)) assign(v, my_list[[v]])
 
 print(a)
+```
+---
+
+**Markdown Header**
+
+```r
+title: Findign Marker Genes
+author: Chitrasen Mohanty
+date: September 10, 2021
+output: 
+  html_notebook:
+    toc_depth: 2
+    number_sections: true
+    theme: cerulean
+    highlight: zenburn
+    code_folding: hide
+    toc: true
+```
