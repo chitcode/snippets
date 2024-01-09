@@ -38,3 +38,9 @@ files_btn.click()
 }
 setInterval(ClickConnect,60000)
 ```
+
+#### Increase matplotlib image quality (dpi) in Jupyter notebook
+```python
+plt.rcParams['figure.dpi'] = 300
+plt.rcParams['savefig.dpi'] = 300
+```
