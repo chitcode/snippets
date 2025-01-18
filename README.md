@@ -1,7 +1,16 @@
 # snipets
-code snipets with tricks and reusable components
+code snipets with tricks and reusable components I find handly and helpful.
+Please feel free to contribute any code snippets that you find helpful.
 
+Subject specific code snippets are available in the individual pages.
 
+[R](R_snippets.md)
+
+[Python](python_snipets.md)
+
+[Bioinformatics](bioInformatics.md)
+
+A few examples are listed here.
 #### Reading sparse matrix in python
 ```python
 from scipy import io
@@ -23,6 +32,8 @@ This is helpful, especially if you are using both R and Python(or anythong else)
 
 #### Exporting Seurat object from R to scanpy readable object
 
+First export the Seurat object as h5ad format using R 
+
 ```R
 library(Seurat)
 library(SeuratData)
@@ -34,6 +45,8 @@ libd.151507 <- readRDS("data/processed_data/151507.rds")#reading seurat object p
 SaveH5Seurat(libd.151507, filename = "data/processed_data/libd.151507.h5Seurat")
 Convert("data/processed_data/libd.151507.h5Seurat", dest = "data/processed_data/libd.151507.h5ad")
 ```
+
+Then, import the h5ad object using scanpy in Python
 
 ```python
 import pandas as pd
