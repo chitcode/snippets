@@ -8,7 +8,7 @@ Subject specific code snippets are available in the individual pages.
 
 [Python](python_snipets.md)
 
-[Bioinformatics](bioInformatics.md)
+[Bioinformatics](bioInformatics.md) (mix of R and Python snippets)
 
 A few examples are listed here.
 #### Reading sparse matrix in python
