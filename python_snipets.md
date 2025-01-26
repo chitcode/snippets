@@ -6,7 +6,14 @@ counts = io.mmread('matrix.mtx.gz')
 ```
 Tags : cellranger , count matrix
 
+---
+#### One-hot-encoding in pure python
 
+```python
+def convert_one_hot_encode(y,classes):
+    Y = np.eye(classes)[y.reshape(-1).T]
+    return Y
+```
 ---
 #### Install conda package from Jupyter notebook cell
 Prob: Conda needs permission before installing any package, however when you are installing any package from Jupyter notebook cell, you cannot give permission interactively.
