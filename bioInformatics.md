@@ -129,5 +129,15 @@ keggReturns <- keggReturns[genesLines]
 #further cleaning
 genesList <- gsub("\\;.*","",keggReturns)
 head(genesList)
-#"FGF1"  "FGF2"  "FGF3"  "FGF4"  "FGF17" "FGF6" 
+#"FGF1"  "FGF2"  "FGF3"  "FGF4"  "FGF17" "FGF6"
 ```
+
+## Using [STARsolo](https://cumulus.readthedocs.io/en/latest/starsolo.html) for 10x fastq files. 
+
+In a recent paper from [Sarah A. Teichmann](https://www.sanger.ac.uk/group/teichmann-group/) group details the commands for using STARsolo and getting very close results with Cell Ranger.
+
+https://www.nature.com/articles/s41586-024-07944-6#Sec46
+
+`
+After fastq file generation, 10x Genomics scRNA-seq experiments were processed using the STARsolo pipeline detailed on GitHub (https://github.com/cellgeni/STARsolo). A STAR human genome reference matching Cell Ranger GRCh38-2020-A was prepared as per instructions from 10x Genomics. Using STAR v.2.7.9a and the previously collected data about sample type (3′/5′, 10x Genomics kit version), we applied the STARsolo command to specify UMI collapsing, barcode collapsing, and read clipping algorithms to generate results maximally similar to the default parameters of the “cellranger count” command in Cell Ranger v.6: “--soloUMIdedup 1MM_CR --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --clipAdapterType CellRanger4 --outFilterScoreMin 30”. For cell filtering, the EmptyDrops algorithm of Cell Ranger v.4 and above was invoked using “--soloCellFilter EmptyDrops_CR”. The option “--soloFeatures Gene GeneFull Velocyto” was used to generate both exon-only and full length (pre-mRNA) gene counts, as well as RNA velocity output matrices. TCR-seq samples were processed using Cell Ranger v.6.1.1 with VDJ reference vdj-GRCh38-alts-5.0.0. The default settings of the reference-based “cellranger vdj” command were used. Fastq files were converted to <Sample>_S1_L001_R1_001.fastq.gz format to be compatible with Cell Ranger.
+`
